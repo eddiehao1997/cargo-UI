@@ -1,0 +1,68 @@
+
+<div class="login-layout">
+  <header class="login-header">
+    <h2>页头占位符（登录界面）</h2>
+  </header>
+
+  <div class="login-body">
+    <div class="row" style="height: 100%;">
+
+      <div class="col-7 align-self-center">
+        <div class="row justify-content-center" style="text-align: center;">
+          <h1>图片占位符</h1>
+        </div>
+      </div>
+      
+      <div class="col-5 align-self-center">
+        <div class="container">
+          <div class="card login-card">
+
+            <div class="card-body">
+              <div class="row">
+                <h2 style="color:#0f1642"> 请登录 </h2>
+              </div>
+
+              <div class="row">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <input placeholder="用户名" type="text" formControlName="username" class="form-control form-field" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input placeholder="密码" type="password" formControlName="password" class="form-control form-field" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                  </div>
+                  <br>
+                  <label *ngIf="error" style="color:red; padding-top:0.7em;">{{error}}</label>
+                  <button [disabled]="loading" class="btn btn-primary login-btn">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                      登录
+                  </button>
+                </form>
+              </div>
+
+              <div class="row">
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="login-footer">
+    <h2>页脚占位符</h2>
+    <button type="button" class="btn btn-primary" (click)="logout()">登出测试</button>
+  </footer>
+  
+</div>
+
+  

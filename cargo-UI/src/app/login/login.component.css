@@ -1,0 +1,28 @@
+.login-body{
+    height: 80vh;
+    background-color: cornflowerblue;
+    margin: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.login-btn {
+    border: 0;
+    width: 100%;
+}
+
+/* .login-card-container{
+
+} */
+
+.login-footer {
+    min-height: 10vh;
+}
+
+.login-header {
+    height: 10vh;
+}
+
+.login-layout{
+    min-height: 100vh;
+}
