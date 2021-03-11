@@ -1,0 +1,112 @@
+<div class="row justify-content-start">
+    <div class="container">
+        <h1 style="margin: 0;">运单详情</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card task-card" >
+        <div class="card-header">
+            <div class="row g-0">
+                <div class="col-2 align-items-center">
+                    <p style="color: rgb(0, 146, 78); text-align: center">起点</p>
+                </div>
+                <div class="col-4 justify-content-center">
+                    <p style="text-align: center;">{{demoTask.start}}</p>
+                </div>
+                <div class="col-2 justify-content-center">
+                    <p style="color: rgb(255, 164, 27); text-align: center">终点</p>
+                </div>
+                <div class="col-4 justify-content-center">
+                    <p style="text-align: center;">{{demoTask.end}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container detail-container">
+                
+                <div class="row g-0">
+                    <div class="col-2">
+                        <p>货物内容：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.cargoContent}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p>货物单价：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.unitePrice}}</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-2">
+                        <p>发布车数：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.carNumber}}辆</p>
+                    </div>
+                    <div class="col-2">
+                        <p>拉货车数：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.requiredCar}}辆</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-2">
+                        <p>发布时间：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.timestamp}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p>抢单时间：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.bidTime}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row justify-content-between">
+                    <div class="col-2">
+                        运费总计
+                    </div>
+                    <div class="col-2">
+                        <div class="price-tag">
+                            {{demoTask.price}} 元
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row g-0 justify-content-between">
+                <div class="col-1  align-middle">
+                    <p style="text-align: middle"> 运单状态: </p>
+                </div>
+                <div class="col-3 justify-content-start align-middle">
+                    <p style="text-align: start; color: seagreen;">已完成</p>
+                </div>
+                <div class="col-1 align-middle">
+                    <p>时间：</p>
+                </div>
+                <div class="col-3 align-middle">
+                    <p style="text-align: start;">"2020.10.17 21:33:00"</p>
+                </div>
+                <div class="col-2 align-middle">
+                    <button type="button" class="btn btn-sm btn-secondary"
+                        style="width: 100%;"    
+                        (click)="goToAllBiddedTask()"
+                    >返回</button>
+                </div>
+                <div class="col-2 align-middle">
+                    <button type="button" class="btn btn-sm btn-success"
+                        style="width: 100%;"    
+                        (click)="goToMoneyListCar()"
+                    >查看运费</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

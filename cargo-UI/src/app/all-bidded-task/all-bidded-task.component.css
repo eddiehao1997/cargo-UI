@@ -1,0 +1,30 @@
+.content-row {
+    width: 100%;
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail-container {
+    padding: 0;
+}
+
+.search-button {
+    width: 100%;
+    background-color: #fab760;
+} 
+
+.search-row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    background-color: #e7e7e7;
+}
+
+.task-card {
+    padding: 0;
+    width: 100%;
+    margin-top: 2vh;
+}

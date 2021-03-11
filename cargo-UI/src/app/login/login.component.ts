@@ -25,11 +25,12 @@ export class LoginComponent implements OnInit {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/landing']);
     }
+    console.log("login constructed")
   }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
 
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    const loginStatus = this.authenticationService.login(this.f.username.value, this.f.password.value)
+    const loginStatus = this.authenticationService.login(this.f.email.value, this.f.password.value)
     console.log(loginStatus);
     if (loginStatus === true) {
       console.log("login.component.ts login successful redirect to " + this.returnUrl);
@@ -58,13 +59,12 @@ export class LoginComponent implements OnInit {
       this.loading = false;
     } else{
       console.log("login.component.ts login fail");
-      this.error = "Incorrect Username/Password";
+      this.error = "Incorrect email/Password";
       this.loading = false;
     }
   }
 
   public logout() {
     this.authenticationService.logout();
-    // window.location.href = 'https://anly.io/landing';
   }
 }

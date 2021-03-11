@@ -1,1 +1,123 @@
-<p>sign-up works!</p>
+<div class="signup-layout animated fadeIn faster">
+    <header class="signup-header">
+        <img class="header-icon" src="../../assets/logo_white.svg">
+    </header>
+  
+    <div class="signup-body">
+        <!-- <div class="row justify-content-center">
+            <div class="col-3">
+                <div class="card step-card">
+                    <div class="card-body">
+                        step 1
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card step-card">
+                    <div class="card-body">
+                        step 2
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card step-card">
+                    <div class="card-body">
+                        step 3
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row justify-content-center align-items-center" style="height: 100%;">
+            
+            <div class="col-6">
+                <div class="card signup-card">
+                    <div class='card-body'>
+                        <div class="row">
+                            <h2 style="color:#281296"> 新用户注册 </h2>
+                        </div>
+                        <div class="row">
+                            <form [formGroup]="signupForm">
+                                <div class="form-group">
+                                    <input placeholder="邮箱" type="email" formControlName="email" class="form-control form-field form-control-sm" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">请输入用户名</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <input placeholder="请输入密码" type="password" formControlName="password" class="form-control form-field form-control-sm" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">请输入密码</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <input placeholder="再次确认密码" type="password" formControlName="passwordConfirm" class="form-control form-field form-control-sm" [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors }" />
+                                    <div *ngIf="submitted && f.passwordConfirm.errors" class="invalid-feedback">
+                                        <div *ngIf="f.passwordConfirm.errors.required">请再次输入密码</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group" style="width: 100%;">
+                                    <input placeholder="您的手机号" type="text" formControlName="phone" class="form-control form-field form-control-sm" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                        <div *ngIf="f.phone.errors.required">请输入正确的手机号</div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group" style="width: 100%;">
+                                            <input placeholder="验证码" type="text" formControlName="validatationCode" class="form-control form-field form-control-sm" [ngClass]="{ 'is-invalid': submitted && f.validatationCode.errors }" />
+                                            <div *ngIf="submitted && f.validatationCode.errors" class="invalid-feedback">
+                                                <div *ngIf="f.validatationCode.errors.required">请输入短信验证码</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn validation-btn btn-sm" 
+                                            style="width: 100%;"
+                                            [disabled]="!canSendValidation"
+                                            (click)="sendValidationCode()">
+                                            <span *ngIf="!canSendValidation" class="spinner-border spinner-border-sm mr-1"></span>
+                                            {{validationButtonText}}
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group form-check">
+                                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                                    <label for="acceptTerms" class="form-check-label">我已阅读并接受 
+                                        <a [routerLink]="" (click)="showTC()">服务条款</a>
+                                    </label>
+                                    <!-- <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div> -->
+                                </div>
+
+                                <br>
+                                <label *ngIf="errorMsg" style="color:red; padding-top:0.7em;">{{errorMsg}}</label>
+                                <button [disabled]="loading" class="btn submit-button"
+                                    (click)="onSubmit()">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    注册
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+  
+    <footer class="signup-footer">
+        <div class="row footer-row justify-content-center">
+            <div class="col-10 text-center">
+                <a class="bottom-text first-child">联系我们</a>
+                <a class="bottom-text">029-87763663</a>
+                <a class="bottom-text">jiamazhihuiwulian@quantonggroup.com.cn</a>
+                <a class="bottom-text">陕西省西安市未央区北二环海沃新能源汽车产业综合体</a>
+            </div>
+          </div>
+    </footer>
+    
+</div>

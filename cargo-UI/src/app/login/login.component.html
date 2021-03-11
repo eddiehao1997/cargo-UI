@@ -1,33 +1,39 @@
 
-<div class="login-layout">
+<div class="login-layout animated fadeIn faster">
   <header class="login-header">
-    <h2>页头占位符（登录界面）</h2>
+    <img class="header-icon" src="../../assets/logo_white.svg">
   </header>
 
   <div class="login-body">
-    <div class="row" style="height: 100%;">
+    <div class="row" style="height: 100%; ">
 
       <div class="col-7 align-self-center">
         <div class="row justify-content-center" style="text-align: center;">
-          <h1>图片占位符</h1>
+          <h1>构建万物互联的智慧世界</h1>
+          <p>BUILDING A SMART WORLD</p>
         </div>
       </div>
       
       <div class="col-5 align-self-center">
         <div class="container">
+
+          <div class="card" style="background: transparent; border-width: 0;">
+            <h1 style="margin: 0; padding-bottom: 1vh;">用户登录</h1>
+          </div>
+          
           <div class="card login-card">
 
             <div class="card-body">
               <div class="row">
-                <h2 style="color:#0f1642"> 请登录 </h2>
+                <h2 style="color:#0f1642"> 账号密码登录 </h2>
               </div>
 
               <div class="row">
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                   <div class="form-group">
-                    <input placeholder="用户名" type="text" formControlName="username" class="form-control form-field" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                      <div *ngIf="f.username.errors.required">Username is required</div>
+                    <input placeholder="邮箱" type="email" formControlName="email" class="form-control form-field" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
                     </div>
                   </div>
                   <br>
@@ -39,28 +45,46 @@
                   </div>
                   <br>
                   <label *ngIf="error" style="color:red; padding-top:0.7em;">{{error}}</label>
-                  <button [disabled]="loading" class="btn btn-primary login-btn">
+                  <button [disabled]="loading" class="btn login-btn">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                       登录
                   </button>
                 </form>
               </div>
 
-              <div class="row">
-
+              <div class="row justify-content-end" style="padding-top: 3vh;">
+                <div class="col align-self-center" style="text-align: end;">
+                  <a routerLink="../find_pw" class="card-link"> 忘记密码 </a>
+                  <a routerLink="../signup" class="card-link"> 新用户注册 </a>
+                </div>
               </div>
             </div>
 
-
           </div>
+
+          <div class="card" style="background: transparent; border-width: 0;">
+            <div class="row ">
+              <div class="col-">
+
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
   <footer class="login-footer">
-    <h2>页脚占位符</h2>
-    <button type="button" class="btn btn-primary" (click)="logout()">登出测试</button>
+    <div class="row footer-row justify-content-center">
+      <div class="col-10 text-center">
+        <a class="bottom-text first-child">联系我们</a>
+        <a class="bottom-text">029-87763663</a>
+        <a class="bottom-text">jiamazhihuiwulian@quantonggroup.com.cn</a>
+        <a class="bottom-text">陕西省西安市未央区北二环海沃新能源汽车产业综合体</a>
+      </div>
+    </div>
+    <!-- <button type="button" class="btn btn-primary" (click)="logout()">登出测试</button> -->
   </footer>
   
 </div>

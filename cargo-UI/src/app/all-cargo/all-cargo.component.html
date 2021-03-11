@@ -1,0 +1,114 @@
+<!-- <div class="container">
+
+</div> -->
+<div class="row justify-content-start">
+    <div class="container">
+        <h1 style="margin: 0;">已发布项目</h1>
+    </div>
+</div>
+<div class="row search-row align-items-center">
+    <div class="col-1">
+        <label for="cargoName">货物名称</label>
+    </div>
+    <div class="col-2">
+        <input type="password" class="form-control" id="cargoName">
+    </div>
+    <div class="col-1">
+        <label for="cargoType">货源类型</label>
+    </div>
+    <div class="col-2">
+        <input type="password" class="form-control" id="cargoType">
+    </div>
+    <div class="col-1">
+        <label for="shippingReq">拉货要求</label>
+    </div>
+    <div class="col-2">
+        <input type="password" class="form-control" id="shippingReq">
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-light search-button">搜索</button>
+    </div>
+</div>
+<div class="row content-row">
+    <div class="card task-card" 
+        *ngFor="let demoTask of demoTasks; index as i;">
+        <div class="card-header">
+            <div class="row g-0">
+                <div class="col-2">
+                    <p style="color: rgb(0, 146, 78);">起点</p>
+                </div>
+                <div class="col-10">
+                    <p>{{demoTask.start}}</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-2">
+                    <p style="color: rgb(255, 164, 27);">终点</p>
+                </div>
+                <div class="col-10">
+                    <p>{{demoTask.end}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container detail-container">
+                <div class="row g-0 justify-content-end">
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-4">
+                        <p>货物内容：</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{demoTask.cargoContent}}</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-4">
+                        <p>货物单价：</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{demoTask.unitePrice}}</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-4">
+                        <p>发布车数：</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{demoTask.carNumber}}辆</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-4">
+                        <p>拉货车数：</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{demoTask.requiredCar}}辆</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-4">
+                        <p>发布时间：</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{demoTask.timestamp}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row g-0 justify-content-center">
+                <div class="col-6">
+                    <button type="button" class="btn btn-sm btn-success"
+                        style="width: 100%;"    
+                    >查看详情</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,6 +1,115 @@
-<div class="container">
-    <p>user-console works!</p>
-    <p> i'm a {{currentUser}} user!</p>
-    <button type="button" class="btn btn-primary" (click)="logout()">登出测试</button>
-</div>
 
+<header class="navbar navbar-expand-lg navbar-dark console-navbar animated fadeInDown faster">
+    <img class="header-icon" src="../../assets/logo_white.svg">
+    <a class="navbar-brand">{{currentTitle}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul> -->
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+    </div>
+    <a class="navbar-brand" style="font-size: 3vh;">您好 {{currentUser}}</a>
+    <!-- <div class="user-prumpt " style="width: 15vw; margin: 0; text-align: center;"> 
+        <h3>您好 {{currentUser}}</h3>
+    </div> -->
+    <button type="button" class="btn btn-primary logout-btn" style="width: 10vw;"
+        (click)="logout()">登出</button>
+</header>
+
+<div class="container-fluid body-container">
+    <div class="row body-row animated fadeIn faster">
+        <div class="col-2 sidnav-col ">
+            <div class="bd-links">
+
+                <ul class="list-unstyled">
+                    <li class="mb-1" *ngFor="let primaryItem of curMenu; index as i;">
+                        <button class="btn first-level-button rounded"
+                            data-bs-toggle="collapse" [attr.data-bs-target]="'#' + primaryItem.sectionName"
+                            aria-expanded="true" aria-current="true">
+                            {{primaryItem.displayName}}
+                        </button>
+                        <div class="collapse show" id="{{primaryItem.sectionName}}">
+                            <ul class="list-unstyled fw-normal pb-1 small">
+                                <li *ngFor="let item of primaryItem.subSection; index as i;">
+                                    <button type="button" class="btn second-level-button d-inline-flex rounded"
+                                    (click)="changeSection(item)"
+                                    [ngClass]="{'active': currentSection === item}">
+                                        {{item.displayName}}
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-10 dyn-col" style="height: 200vh;">
+
+            <div class="container dyn-content">
+                <app-all-bidable-cargo (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'allBidableCargo'"></app-all-bidable-cargo>
+                <app-place-bid (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'placeBid'"></app-place-bid>
+                <app-all-bidded-task (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'allBiddedTask'"></app-all-bidded-task>
+                <app-task-detail (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'taskDetail'"></app-task-detail>
+                <app-money-list-car (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'moneyListCar'"></app-money-list-car>
+                <app-sum-money-car (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'sumMoneyCar'"></app-sum-money-car>
+                <app-my-car (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'myCar'"></app-my-car>
+                <app-car-price (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'carPrice'"></app-car-price>
+                <app-feedback (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'feedback'"></app-feedback>
+                <app-new-cargo (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'newCargo'"></app-new-cargo>
+                <app-all-cargo (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'allCargo'"></app-all-cargo>
+                <app-all-task (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'allTask'"></app-all-task>
+                <app-search-task (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'searchTask'"></app-search-task>    
+                <app-money-list (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'moneyList'"></app-money-list>
+                <app-sum-money (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'sumMoney'"></app-sum-money>
+                <app-blacklist (changeComponent)="onChangeComponent($event)"
+                    *ngIf="currentSection.sectionName == 'blacklist'"></app-blacklist> 
+            </div>
+
+            
+        </div>
+       
+    </div>
+    
+</div>

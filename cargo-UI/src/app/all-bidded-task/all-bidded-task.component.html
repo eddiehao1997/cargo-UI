@@ -1,0 +1,117 @@
+<div class="row justify-content-start">
+    <div class="container">
+        <h1 style="margin: 0;">已有运单</h1>
+    </div>
+</div>
+<div class="row search-row align-items-center">
+    <div class="col-1">
+        <label for="cargoName">货物名称</label>
+    </div>
+    <div class="col-2">
+        <input type="password" class="form-control" id="cargoName">
+    </div>
+    <div class="col-1">
+        <label for="cargoType">货源类型</label>
+    </div>
+    <div class="col-2">
+        <input type="password" class="form-control" id="cargoType">
+    </div>
+    <div class="col-1">
+        <label for="shippingReq">拉货要求</label>
+    </div>
+    <div class="col-2">
+        <input type="password" class="form-control" id="shippingReq">
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-light search-button">搜索</button>
+    </div>
+</div>
+<div class="container task-container">
+    <div class="card task-card" *ngFor="let demoTask of demoTasks; index as i;">
+        <div class="card-header">
+            <div class="row g-0">
+                <div class="col-2 align-items-center">
+                    <p style="color: rgb(0, 146, 78); text-align: center">起点</p>
+                </div>
+                <div class="col-4 justify-content-center">
+                    <p style="text-align: center;">{{demoTask.start}}</p>
+                </div>
+                <div class="col-2 justify-content-center">
+                    <p style="color: rgb(255, 164, 27); text-align: center">终点</p>
+                </div>
+                <div class="col-4 justify-content-center">
+                    <p style="text-align: center;">{{demoTask.end}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="container detail-container">
+                
+                <div class="row g-0">
+                    <div class="col-2">
+                        <p>货物内容：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.cargoContent}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p>货物单价：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.unitePrice}}</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-2">
+                        <p>发布车数：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.carNumber}}辆</p>
+                    </div>
+                    <div class="col-2">
+                        <p>拉货车数：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.requiredCar}}辆</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-2">
+                        <p>发布时间：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.timestamp}}</p>
+                    </div>
+                    <div class="col-2">
+                        <p>抢单时间：</p>
+                    </div>
+                    <div class="col-4">
+                        <p>{{demoTask.bidTime}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row g-0 justify-content-between">
+                <div class="col-1  align-middle">
+                    <p style="text-align: middle"> 运单状态: </p>
+                </div>
+                <div class="col-3 justify-content-start align-middle">
+                    <p style="text-align: start; color: seagreen;">已完成</p>
+                </div>
+                <div class="col-1 align-middle">
+                    <p>时间：</p>
+                </div>
+                <div class="col-3 align-middle">
+                    <p style="text-align: start;">"2020.10.17 21:33:00"</p>
+                </div>
+                <div class="col-4 align-middle">
+                    <button type="button" class="btn btn-sm btn-success"
+                        style="width: 100%; background-color: #fab760;"    
+                        (click)="goToTaskDetail(demoTask)"
+                    >查看详情</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
