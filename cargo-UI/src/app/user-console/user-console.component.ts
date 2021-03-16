@@ -120,10 +120,10 @@ export class UserConsoleComponent implements OnInit {
       sectionName: "others",
       displayName: "其他",
       subSection: [
-        {
-          sectionName: "blacklist",
-          displayName: "车辆黑名单",
-        },
+        // {
+        //   sectionName: "blacklist",
+        //   displayName: "车辆黑名单",
+        // },
         {
           sectionName: "feedback",
           displayName: "意见反馈",
